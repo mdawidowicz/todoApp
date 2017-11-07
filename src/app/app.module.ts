@@ -1,4 +1,3 @@
-import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { FirebaseProvider } from '../providers/firebase/firebase';
 import { HttpModule } from '@angular/http';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -14,6 +13,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { UsersPage } from '../pages/users/users';
 import { MyApp } from './app.component';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAmIfobZ5UrYQP2NWodi82wfXm6egWa9nk",
@@ -37,9 +38,9 @@ const firebaseConfig = {
   imports: [
     BrowserModule,
     HttpModule,
-    AngularFirestoreModule,
+    IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
-    IonicModule.forRoot(MyApp)
+    AngularFirestoreModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -52,6 +53,7 @@ const firebaseConfig = {
   ],
   providers: [
     FirebaseProvider,
+    AngularFireDatabase,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

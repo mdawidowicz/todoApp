@@ -1,7 +1,8 @@
+import { AngularFireDatabase } from 'angularfire2/database';
+
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { AngularFirestore } from 'angularfire2/firestore';
 
 /*
   Generated class for the FirebaseProvider provider.
@@ -12,11 +13,11 @@ import { AngularFirestore } from 'angularfire2/firestore';
 @Injectable()
 export class FirebaseProvider {
 
-  constructor(public db: AngularFirestore) {
+  constructor(public db: AngularFireDatabase) {
     console.log('Hello FirebaseProvider Provider');
   }
   getUsers() {
-    return this.db.collection('/users').valueChanges();
+    return this.db.list('/users').valueChanges();
   }
 
 }

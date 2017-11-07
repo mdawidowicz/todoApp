@@ -18,7 +18,7 @@
         <ion-item-sliding *ngFor="let user of users | async">
           <ion-item>
             <ion-avatar item-start>
-              <img src="assets/imgs/sniper.jpg">
+              <img [src]="'https://placeimg.com/320/200/people&id='+user.id">
             </ion-avatar>
             <h2>{{user.name}}</h2>
           </ion-item>
