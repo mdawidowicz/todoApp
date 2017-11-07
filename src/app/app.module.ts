@@ -13,8 +13,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { UsersPage } from '../pages/users/users';
 import { MyApp } from './app.component';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/database';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAmIfobZ5UrYQP2NWodi82wfXm6egWa9nk",
@@ -40,7 +39,7 @@ const firebaseConfig = {
     HttpModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFirestoreModule
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
