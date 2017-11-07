@@ -1,16 +1,29 @@
-import { UsersPage } from '../pages/users/users';
-import { NgModule, ErrorHandler } from '@angular/core';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { FirebaseProvider } from '../providers/firebase/firebase';
+import { HttpModule } from '@angular/http';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { UsersPage } from '../pages/users/users';
+import { MyApp } from './app.component';
+import { AngularFireModule } from 'angularfire2';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+const firebaseConfig = {
+  apiKey: "AIzaSyAmIfobZ5UrYQP2NWodi82wfXm6egWa9nk",
+  authDomain: "todoapp-590c7.firebaseapp.com",
+  databaseURL: "https://todoapp-590c7.firebaseio.com",
+  projectId: "todoapp-590c7",
+  storageBucket: "todoapp-590c7.appspot.com",
+  messagingSenderId: "1042887074824"
+};
+
 
 @NgModule({
   declarations: [
@@ -23,6 +36,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -35,6 +51,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     UsersPage
   ],
   providers: [
+    FirebaseProvider,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

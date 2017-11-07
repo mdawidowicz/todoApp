@@ -15,12 +15,12 @@
 
 <ion-content padding>
     <ion-list>
-        <ion-item-sliding>
+        <ion-item-sliding *ngFor="let user of users | async">
           <ion-item>
             <ion-avatar item-start>
               <img src="assets/imgs/sniper.jpg">
             </ion-avatar>
-            <h2>Slimer</h2>
+            <h2>{{user.name}}</h2>
           </ion-item>
           <ion-item-options side="left">
             <button ion-button color="primary">

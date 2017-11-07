@@ -1,5 +1,7 @@
+import { FirebaseProvider } from '../../providers/firebase/firebase';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Observable } from 'rxjs/Observable';
 
 /**
  * Generated class for the UsersPage page.
@@ -15,7 +17,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class UsersPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  users: Observable<any[]>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public fbp: FirebaseProvider) {
+    this.users = fbp.getUsers();
   }
 
   ionViewDidLoad() {
