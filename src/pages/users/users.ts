@@ -1,7 +1,7 @@
 import { TodosPage } from '../todos/todos';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 
 /**
@@ -11,7 +11,6 @@ import { Observable } from 'rxjs/Observable';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-users',
   templateUrl: 'users.html',
