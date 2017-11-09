@@ -1,3 +1,4 @@
+import { TodosPage } from '../pages/todos/todos';
 import { FirebaseProvider } from '../providers/firebase/firebase';
 import { HttpModule } from '@angular/http';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -32,7 +33,8 @@ const firebaseConfig = {
     ContactPage,
     HomePage,
     TabsPage,
-    UsersPage
+    UsersPage,
+    TodosPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ const firebaseConfig = {
     ContactPage,
     HomePage,
     TabsPage,
-    UsersPage
+    UsersPage,
+    TodosPage
   ],
   providers: [
     FirebaseProvider,

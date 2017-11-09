@@ -8,6 +8,7 @@
 
   <ion-navbar>
     <ion-title>users</ion-title>
+    
   </ion-navbar>
 
 </ion-header>
@@ -15,7 +16,8 @@
 
 <ion-content padding>
     <ion-list>
-        <ion-item-sliding *ngFor="let user of users | async">
+      <ion-list clear *ngFor="let user of users | async" (click)=" itemUserClicked(user)" >
+
           <ion-item>
             <ion-avatar item-start>
               <img [src]="'https://placeimg.com/320/200/people&id='+user.id">
@@ -38,7 +40,8 @@
               Email
             </button>
           </ion-item-options>
-        </ion-item-sliding>
+        </ion-list>
+
       </ion-list>
 
 </ion-content>
